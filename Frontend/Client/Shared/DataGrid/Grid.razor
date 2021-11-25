@@ -22,6 +22,15 @@
             <AlertBox>
               <tr>
                 <td colspan="@Headers.Count()">
+                    <div class="alert alert-info">Loading...</div>
+                </td>
+              </tr>
+            </AlertBox>
+        } else if (!Data.Any())
+        {
+            <AlertBox>
+              <tr>
+                <td colspan="@Headers.Count()">
                     <div class="alert alert-danger">No Data</div>
                 </td>
               </tr>
