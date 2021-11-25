@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Workshop.Blazor.Frontend.Client;
+using Workshop.Blazor.Frontend.Client.ServiceProxy;
 using Workshop.Blazor.Frontend.Client.Services;
 using Workshop.Blazor.Frontend.Shared.Services;
-using Workshop.Blazor.ServiceProxy;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 

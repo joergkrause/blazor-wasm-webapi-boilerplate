@@ -27,7 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Client\Workshop.Blazor.Frontend.Client.csproj" />
     <ProjectReference Include="..\Shared\Workshop.Blazor.Frontend.Shared.csproj" />
   </ItemGroup>
 

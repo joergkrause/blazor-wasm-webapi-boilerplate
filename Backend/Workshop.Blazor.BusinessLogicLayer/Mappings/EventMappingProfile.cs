@@ -1,19 +1,14 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Workshop.Blazor.DataTransferObjects;
 using Workshop.Blazor.DomainModels;
 
-namespace Workshop.Blazor.BusinessLogicLayer.Mappings
+namespace Workshop.Blazor.BusinessLogicLayer.Mappings;
+
+public class EventMappingProfile : Profile
 {
-    public class EventMappingProfile : Profile
-    {
-        public EventMappingProfile() {
-            CreateMap<Event, EventDto>()
-                .ForMember(evt => evt.NumberOfSeats, opt => opt.MapFrom(s => s.Seats.Count));
-        }
-    }
+  public EventMappingProfile()
+  {
+    CreateMap<Event, EventDto>()
+        .ForMember(evt => evt.NumberOfSeats, opt => opt.MapFrom(s => s.Seats.Count));
+  }
 }

@@ -5,12 +5,13 @@ using Workshop.Blazor.Frontend.Shared.State;
 
 namespace Workshop.Blazor.Frontend.Client.Pages.CounterPage
 {
-
-  /// <summary>
-  /// Just for demoing the Store feature.
-  /// </summary>
-  public class CounterReducer : IReducer
+  public class ListEventsReducer : IReducer
   {
+
+    public ListEventsReducer(DataService dataService)
+    {
+
+    }
 
     public Task<IStateStore> InvokeAsync(IStateStore state, IAction action)
     {

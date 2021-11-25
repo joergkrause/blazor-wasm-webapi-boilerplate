@@ -4,14 +4,14 @@ using Workshop.Blazor.Frontend.Client.ViewModels;
 
 namespace Workshop.Blazor.Frontend.Client.Pages
 {
-  public partial class FetchData
+  public class ListEventsModel : ComponentBase
   {
 
     [Inject]
-    public DataService DataService { get; set; }
+    protected DataService DataService { get; set; }
 
     [Inject]
-    public NavigationManager Navigation { get; set; }
+    protected NavigationManager Navigation { get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
@@ -19,26 +19,24 @@ namespace Workshop.Blazor.Frontend.Client.Pages
       DataSource = data;
     }
 
-    public IEnumerable<EventViewModel> DataSource { get; set; }
+    protected IEnumerable<EventViewModel> DataSource { get; set; }
 
-    public EventViewModel CurrentItem { get; set; }
+    protected EventViewModel CurrentItem { get; set; }
 
-    private async Task GridAction((string, EventViewModel) action)
+    protected async Task GridAction((string Action, EventViewModel Payload) action)
     {
-      if (action.Item1 == "edit")
+      if (action.Action == "edit")
       {
-        var editId = action.Item2.Id;
+        var editId = action.Payload.Id;
         // Frische Daten holen!
         var item = await DataService.GetEventById(editId);
         if (item == null)
         {
-          DataService.CurrentEditItem = null;
-          CurrentItem = null;
+          DataService.CurrentEditItem = CurrentItem = null;
         }
         else
         {
-          CurrentItem = item;
-          DataService.CurrentEditItem = item;
+          CurrentItem = DataService.CurrentEditItem = item;
           Navigation.NavigateTo("editevent");
         }
       }

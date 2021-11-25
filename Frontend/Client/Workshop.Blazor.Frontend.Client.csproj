@@ -30,6 +30,10 @@
     <ProjectReference Include="..\Shared\Workshop.Blazor.Frontend.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\FileUpload\" />
+  </ItemGroup>
+
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="npm run build &amp;&amp; nswag run nswag.json /runtime:NetCore31&#xD;&#xA;" />
   </Target>

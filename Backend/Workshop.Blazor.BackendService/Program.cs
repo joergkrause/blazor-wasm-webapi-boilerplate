@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Workshop.Blazor.BusinessLogicLayer;
 using Workshop.Blazor.DataAccessLayer;
 
@@ -11,7 +11,8 @@ var connectionString = @"Data Source=(localdb)\BlazorWorkshop;Initial Catalog=Ev
 builder.Services.AddDbContext<EventDatabaseContext>(opt => opt.UseSqlServer(connectionString));
 
 // Manager
-builder.Services.AddScoped<EventManager>();
+builder.Services.AddScoped<IEventManager, EventManager>();
+builder.Services.AddScoped<IFileUploadManager, FileUploadManager>();
 
 // Mapper
 builder.Services.AddAutoMapper(typeof(Manager).Assembly);

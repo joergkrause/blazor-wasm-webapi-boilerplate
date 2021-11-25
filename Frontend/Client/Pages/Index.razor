@@ -3,10 +3,8 @@
 
 @using Workshop.Blazor.Frontend.Client.Shared.DataGrid
 @using Workshop.Blazor.Frontend.Client.ViewModels
-@using Workshop.Blazor.ServiceProxy
 
 @inject NavigationManager NavMan
-@inject IClientService ClientService
 
 <PageTitle>Index</PageTitle>
 
@@ -19,33 +17,3 @@ Welcome to your new app. Uri = @NavMan.Uri / Tenant = @T
 <button @onclick="() => SetTenant(3)">T3</button>
 
 
-@code {
-
-    [Inject] 
-    private IJSRuntime _js { get; set; }
-
-    [Parameter()]
-    public int T { get; set; }
-
-    public IList<EventViewModel> DataSource { get; set; }
-
-    //protected override void OnParametersSet()
-    //{                
-    //    DataSource = new List<EventViewModel>();
-    //    DataSource.Add(new EventViewModel { Id = 1, Name = "Demo", Begin = new DateTime(2021, 11, 23, 9, 0, 0), End = new DateTime(2021, 11, 23, 17, 0, 0), NumberOfSeats = 0 });
-    //    DataSource.Add(new EventViewModel { Id = 2, Name = "Demo 2", Begin = new DateTime(2021, 11, 24, 9, 0, 0), End = new DateTime(2021, 11, 23, 17, 0, 0), NumberOfSeats = 10 });
-    //    DataSource.Add(new EventViewModel { Id = 3, Name = "Demo 3", Begin = new DateTime(2021, 11, 25, 9, 0, 0), End = new DateTime(2021, 11, 23, 17, 0, 0), NumberOfSeats = 20 });
-    //}
-
-    public async Task SetTenant(int id)
-    {
-        await SetBaseHref("BlazorHRef", $"/t/{id}/");                
-    }
-
-    public async ValueTask<bool> SetBaseHref(string elementId, string hRef) {
-        var result = await _js.InvokeAsync<bool>("SetBaseHref", elementId, hRef);
-        NavMan.NavigateTo(hRef, false);
-        return result;
-    }
-
-}

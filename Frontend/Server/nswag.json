@@ -11,10 +11,11 @@
       "clientBaseClass": null,
       "generateClientClasses": true,
       "generateClientInterfaces": true,
-      "namespace": "Workshop.Blazor.ServiceProxy",
+      "namespace": "Workshop.Blazor.Frontend.Server.ServiceProxy",
       "className": "BackendService",
       "injectHttpClient": true,
       "disposeHttpClient": false,
+      "dateTimeType": "System.DateTime",
       "output": "Connected Services\\ServiceProxy.cs"
     }
   }

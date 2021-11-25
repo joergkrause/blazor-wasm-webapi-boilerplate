@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.ResponseCompression;
-using Workshop.Blazor.ServiceProxy;
+using Workshop.Blazor.Frontend.Server.ServiceProxy;
 
 var builder = WebApplication.CreateBuilder(args);
 

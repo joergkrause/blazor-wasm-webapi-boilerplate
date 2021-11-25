@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Workshop.Blazor.ServiceProxy;
+using Workshop.Blazor.Frontend.Server.ServiceProxy;
 
 namespace Workshop.Blazor.Frontend.Server.Controllers
 {
@@ -10,10 +10,12 @@ namespace Workshop.Blazor.Frontend.Server.Controllers
   {
 
     private readonly IBackendService _serviceProxy;
+    private readonly ILogger<EventController> _logger;
 
-    public EventController(IBackendService serviceProxy)
+    public EventController(IBackendService serviceProxy, ILogger<EventController> logger)
     {
       _serviceProxy = serviceProxy;
+      _logger = logger;
     }
 
     [HttpGet]

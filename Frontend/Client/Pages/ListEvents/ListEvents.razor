@@ -1,9 +1,8 @@
-﻿@page "/fetchdata"
+﻿@page "/listevents"
 @using Workshop.Blazor.Frontend.Client.Shared.DataGrid
 @using Workshop.Blazor.Frontend.Client.ViewModels
-@using Workshop.Blazor.ServiceProxy
 
-@inject IClientService ClientService
+@inherits ListEventsModel
 
 <PageTitle>Events</PageTitle>
 
@@ -11,10 +10,12 @@
 
 <Grid Type=@EventViewModel Data="@DataSource" Action="GridAction">
     <IntegerTemplate>
-        @if(context == 0)
+        @if (context == 0)
         {
             <span class="badge bg-warning">Leider ausverkauft</span>
-        } else {
+        }
+        else
+        {
             <span class="badge bg-primary">@context</span>
         }
     </IntegerTemplate>

@@ -11,7 +11,7 @@
       "clientBaseClass": null,
       "generateClientClasses": true,
       "generateClientInterfaces": true,
-      "namespace": "Workshop.Blazor.ServiceProxy",
+      "namespace": "Workshop.Blazor.Frontend.Client.ServiceProxy",
       "className": "ClientService",
       "injectHttpClient": true,
       "disposeHttpClient": false,

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using Workshop.Blazor.Frontend.Client.ServiceProxy;
 using Workshop.Blazor.Frontend.Client.ViewModels;
-using Workshop.Blazor.ServiceProxy;
 
 namespace Workshop.Blazor.Frontend.Client.Services
 {
@@ -22,8 +22,15 @@ namespace Workshop.Blazor.Frontend.Client.Services
         conf.CreateMap<EventDto, EventViewModel>().ReverseMap();
         conf.CreateMap<EventFormViewModel, EventDto>();
         conf.CreateMap<EventViewModel, EventFormViewModel>();
+        conf.CreateMap<UploadFileDto, UploadFileViewModel>();
       });
       _mapper = mapperConfiguration.CreateMapper();
+    }
+
+    internal async Task<IEnumerable<UploadFileViewModel>> GetFileFilesAsync()
+    {
+      var dtos = await _clientService.FileAsync();
+      return _mapper.Map<IEnumerable<UploadFileViewModel>>(dtos);
     }
 
     public async Task<IEnumerable<EventViewModel>> GetAllEvents()
@@ -41,7 +48,7 @@ namespace Workshop.Blazor.Frontend.Client.Services
     public async Task SaveEvent(EventFormViewModel eventModel)
     {
       var dto = _mapper.Map<EventDto>(eventModel);
-      // await _clientService.SaveEvent(dto); // TODO: 
+      // await _clientService.Ev(dto);
     }
 
     public EventViewModel CurrentEditItem { get; set; }
@@ -51,5 +58,9 @@ namespace Workshop.Blazor.Frontend.Client.Services
       return _mapper.Map<EventFormViewModel>(CurrentEditItem);
     }
 
+    public async Task<IEnumerable<UploadResult>> PostFileAsync(List<FileParameter> files)
+    {
+      return await _clientService.PostFileAsync(files);
+    }
   }
 }
