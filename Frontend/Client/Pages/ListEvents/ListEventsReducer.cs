@@ -1,7 +1,7 @@
 ﻿using Workshop.Blazor.Frontend.Client.Services;
-using Workshop.Blazor.Frontend.Shared.Action;
-using Workshop.Blazor.Frontend.Shared.Reducer;
-using Workshop.Blazor.Frontend.Shared.State;
+using Workshop.Blazor.Frontend.Store.Action;
+using Workshop.Blazor.Frontend.Store.Reducer;
+using Workshop.Blazor.Frontend.Store.State;
 
 namespace Workshop.Blazor.Frontend.Client.Pages.CounterPage
 {
@@ -15,12 +15,12 @@ namespace Workshop.Blazor.Frontend.Client.Pages.CounterPage
 
     public Task<IStateStore> InvokeAsync(IStateStore state, IAction action)
     {
-      var current = state.GetValue<int>("counter");
-      state["counter"] = action switch
+      _ = action switch
       {
-        var a when a.Equals(CounterActions.COUNTER_INC) => current + 1,
-        var a when a.Equals(CounterActions.COUNTER_DEC) => current - 1,
-        _ => current
+        var a when a.Equals(ListEventsActions.EDIT_EVENT) => true,
+        var a when a.Equals(ListEventsActions.LOAD_EVENTS) => true,
+        var a when a.Equals(ListEventsActions.LOAD_EVENT) => true,
+        _ => default
       };
       return Task.FromResult(state);
     }

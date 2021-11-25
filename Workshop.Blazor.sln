@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{9FFF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workshop.Blazor.Frontend.Server", "Frontend\Server\Workshop.Blazor.Frontend.Server.csproj", "{128C3498-7B6D-4669-A621-D0390638537F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workshop.Blazor.Frontend.Shared", "Frontend\Shared\Workshop.Blazor.Frontend.Shared.csproj", "{1A32B6BF-90A4-4065-BCD1-03B330487EAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workshop.Blazor.Frontend.Store", "Frontend\Shared\Workshop.Blazor.Frontend.Store.csproj", "{1A32B6BF-90A4-4065-BCD1-03B330487EAC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workshop.Blazor.DomainModels", "Backend\Workshop.Blazor.DomainModels\Workshop.Blazor.DomainModels.csproj", "{7FA6E09D-4AD2-48A1-AB6D-CC02D85D8D45}"
 EndProject

@@ -24,6 +24,8 @@ namespace Workshop.Blazor.Frontend.Client
 
     public bool IsSortable { get; set; }
 
+    public bool IsFilterable { get; set; }
+
     public int Order { get; internal set; }
   }
 }

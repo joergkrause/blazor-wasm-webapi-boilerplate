@@ -6,15 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Workshop.Blazor.Frontend.Shared.State
+namespace Workshop.Blazor.Frontend.Store.State
 {
   public class StateStore : IStateStore
   {
 
     private IDictionary<string, object> InnerState { get; } = new Dictionary<string, object>();
 
-    public object this[string key] { 
-      get => InnerState[key]; 
+    public object this[string key]
+    {
+      get => InnerState[key];
       set
       {
         InnerState[key] = value;

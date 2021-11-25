@@ -4,16 +4,21 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Workshop.Blazor.Frontend.Shared.Action;
-using Workshop.Blazor.Frontend.Shared.Reducer;
-using Workshop.Blazor.Frontend.Shared.State;
+using Workshop.Blazor.Frontend.Store.State;
+using Workshop.Blazor.Frontend.Store.Action;
+using Workshop.Blazor.Frontend.Store.Persistence;
+using Workshop.Blazor.Frontend.Store.Reducer;
 
-namespace Workshop.Blazor.Frontend.Shared.Services
+namespace Workshop.Blazor.Frontend.Store.Services
 {
   public class StoreService
   {
-    public StoreService(IServiceProvider provider)
+
+    private readonly IPersistanceService _persistenceService;
+
+    public StoreService(IPersistanceService persistenceService, IServiceProvider provider)
     {
+      _persistenceService = persistenceService;
       var reducers = Assembly.GetEntryAssembly().DefinedTypes.Where(t => t.ImplementedInterfaces.Contains(typeof(IReducer))).ToList();
 
       foreach (var reducer in reducers)
@@ -40,7 +45,7 @@ namespace Workshop.Blazor.Frontend.Shared.Services
 
     public void Dispatch(IAction action)
     {
-      Parallel.ForEach<IReducer>(Reducers, async red => await red.InvokeAsync(StateStore, action));
+      Parallel.ForEach(Reducers, async red => await red.InvokeAsync(StateStore, action));
     }
 
     private void State_OnChanged(object value)

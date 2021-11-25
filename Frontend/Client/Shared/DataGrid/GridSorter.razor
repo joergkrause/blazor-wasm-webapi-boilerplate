@@ -1,10 +1,11 @@
+@using Workshop.Blazor.Frontend.Client.Shared.DataGrid.Models
 <div class="float-end" title="Sortieren nach @Name">
     @if (IsSortable)
     {
-        <button type="button" class="btn btn-outline-light btn-sm" @onclick="SortUp">
+        <button type="button" class="btn btn-sm" @onclick="SortUp">
             <i class="oi oi-arrow-top"></i>
         </button>
-        <button type="button" class="btn btn-outline-light btn-sm" @onclick="SortDown">
+        <button type="button" class="btn btn-sm" @onclick="SortDown">
             <i class="oi oi-arrow-bottom"></i>
         </button>
     }
@@ -19,16 +20,16 @@
     public string Name { get; set; }
 
     [Parameter]
-    public EventCallback<string> Sort { get; set; }
+    public EventCallback<SortOrder> Sort { get; set; }
 
     public async Task SortUp()
     {
-        await Sort.InvokeAsync("asc");
+        await Sort.InvokeAsync(SortOrder.Ascending);
     }
 
     public async Task SortDown()
     {
-        await Sort.InvokeAsync("desc");
+        await Sort.InvokeAsync(SortOrder.Descending);
     }
 
 }

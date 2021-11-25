@@ -1,7 +1,7 @@
 ﻿using Workshop.Blazor.Frontend.Client.Services;
-using Workshop.Blazor.Frontend.Shared.Action;
-using Workshop.Blazor.Frontend.Shared.Reducer;
-using Workshop.Blazor.Frontend.Shared.State;
+using Workshop.Blazor.Frontend.Store.Action;
+using Workshop.Blazor.Frontend.Store.Reducer;
+using Workshop.Blazor.Frontend.Store.State;
 
 namespace Workshop.Blazor.Frontend.Client.Pages.CounterPage
 {

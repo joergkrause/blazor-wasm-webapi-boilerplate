@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Workshop.Blazor.Frontend.Shared.Action;
-using Workshop.Blazor.Frontend.Shared.Services;
-using Workshop.Blazor.Frontend.Shared.State;
+using Workshop.Blazor.Frontend.Store.Action;
+using Workshop.Blazor.Frontend.Store.Services;
+using Workshop.Blazor.Frontend.Store.State;
 
 namespace Workshop.Blazor.Frontend.Client.Pages;
 

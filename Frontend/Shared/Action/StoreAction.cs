@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Workshop.Blazor.Frontend.Shared.Action
+namespace Workshop.Blazor.Frontend.Store.Action
 {
   public class StoreAction<T> : IAction
   {
@@ -23,7 +23,7 @@ namespace Workshop.Blazor.Frontend.Shared.Action
 
     public override bool Equals(object? obj)
     {
-      var toCompare = (obj as StoreAction<T>);
+      var toCompare = obj as StoreAction<T>;
       if (toCompare == null) return false;
       return Action.Equals(toCompare.Action);
     }

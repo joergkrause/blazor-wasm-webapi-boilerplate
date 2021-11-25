@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Workshop.Blazor.Frontend.Shared.State
+namespace Workshop.Blazor.Frontend.Store.State
 {
   public interface IStateStore : IDictionary<string, object>
   {

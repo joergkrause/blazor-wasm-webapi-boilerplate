@@ -1,5 +1,5 @@
 ﻿using Workshop.Blazor.Frontend.Client.ViewModels;
-using Workshop.Blazor.Frontend.Shared.Action;
+using Workshop.Blazor.Frontend.Store.Action;
 
 namespace Workshop.Blazor.Frontend.Client.Pages.CounterPage
 {

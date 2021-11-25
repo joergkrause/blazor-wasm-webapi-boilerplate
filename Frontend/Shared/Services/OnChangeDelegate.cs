@@ -1,6 +1,6 @@
-﻿using Workshop.Blazor.Frontend.Shared.State;
+﻿using Workshop.Blazor.Frontend.Store.State;
 
-namespace Workshop.Blazor.Frontend.Shared;
+namespace Workshop.Blazor.Frontend.Store.Services;
 
 public delegate void OnChangeDelegate(IStateStore state);
 

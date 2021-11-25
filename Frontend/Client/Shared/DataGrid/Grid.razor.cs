@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Components;
 using Workshop.Blazor.Frontend.Client.ViewModels;
 using System.Linq.Expressions;
 using System.ComponentModel.DataAnnotations;
+using Workshop.Blazor.Frontend.Client.Shared.DataGrid.Models;
 
 namespace Workshop.Blazor.Frontend.Client.Shared.DataGrid
 {
@@ -62,17 +63,17 @@ namespace Workshop.Blazor.Frontend.Client.Shared.DataGrid
 
     private RenderFragment<string> AnyValue = value => builder => builder.AddContent(1, value);
 
-    protected void Sort(string dir, string name)
+    protected void Sort(SortOrder dir, string name)
     {
-      // enumerable.OrderBy(d => d.Prop)
+      if (Data == null) return;
       var parameter = Expression.Parameter(typeof(T));                                   // d
       var property = Expression.Property(parameter, name);                               // d.Prop
       var propAsObj = Expression.Convert(property, typeof(object));                      // (object) d.Prop
       var lambda = Expression.Lambda<Func<T, object>>(propAsObj, parameter).Compile();   // d => d.Prop
       Data = dir switch
       {
-        "asc" => Data.OrderBy(lambda),
-        "desc" => Data.OrderByDescending(lambda),
+        SortOrder.Ascending => Data.OrderBy(lambda),
+        SortOrder.Descending => Data.OrderByDescending(lambda),
         _ => Data
       };
     }

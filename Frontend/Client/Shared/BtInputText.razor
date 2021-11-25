@@ -2,7 +2,7 @@
 
 <div class="mb-3">
     <label for="@Id" class="form-label">@Label</label>
-    <input type="@Type" value="@Value" @oninput="InputChanged" class="form-control" id="@Id" placeholder=@Placeholder>
+    <input type="@Type" @bind-value="Value" @oninput="InputChanged" class="form-control" id="@Id" placeholder=@Placeholder>
     <small class="text-black-50">@Description</small>
 </div>
 

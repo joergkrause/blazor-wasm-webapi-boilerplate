@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shared\Workshop.Blazor.Frontend.Shared.csproj" />
+    <ProjectReference Include="..\Client\Workshop.Blazor.Frontend.Client.csproj" />
   </ItemGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
