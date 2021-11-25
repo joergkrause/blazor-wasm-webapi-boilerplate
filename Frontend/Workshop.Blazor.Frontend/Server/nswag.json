@@ -1,0 +1,21 @@
+{
+  "runtime": "NetCore31",
+  "defaultVariables": "Configuration=Debug",
+  "documentGenerator": {
+    "fromDocument": {
+      "json": "openAPIServer.json"
+    }
+  },
+  "codeGenerators": {
+    "openApiToCSharpClient": {
+      "clientBaseClass": null,
+      "generateClientClasses": true,
+      "generateClientInterfaces": true,
+      "namespace": "Workshop.Blazor.ServiceProxy",
+      "className": "BackendService",
+      "injectHttpClient": true,
+      "disposeHttpClient": false,
+      "output": "Connected Services\\ServiceProxy.cs"
+    }
+  }
+}

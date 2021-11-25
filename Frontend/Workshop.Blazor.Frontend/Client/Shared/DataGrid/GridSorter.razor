@@ -1,0 +1,34 @@
+<div class="float-end" title="Sortieren nach @Name">
+    @if (IsSortable)
+    {
+        <button type="button" class="btn btn-outline-light btn-sm" @onclick="SortUp">
+            <i class="oi oi-arrow-top"></i>
+        </button>
+        <button type="button" class="btn btn-outline-light btn-sm" @onclick="SortDown">
+            <i class="oi oi-arrow-bottom"></i>
+        </button>
+    }
+</div>
+
+@code {
+
+    [Parameter]
+    public bool IsSortable { get; set; }
+
+    [Parameter]
+    public string Name { get; set; }
+
+    [Parameter]
+    public EventCallback<string> Sort { get; set; }
+
+    public async Task SortUp()
+    {
+        await Sort.InvokeAsync("asc");
+    }
+
+    public async Task SortDown()
+    {
+        await Sort.InvokeAsync("desc");
+    }
+
+}

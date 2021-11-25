@@ -1,0 +1,44 @@
+﻿
+
+<div class="mb-3">
+    <label for="@Id" class="form-label">@Label</label>
+    <input type="@Type" value="@Value" @oninput="InputChanged" class="form-control" id="@Id" placeholder=@Placeholder>
+    <small class="text-black-50">@Description</small>
+</div>
+
+@code {
+
+    [Parameter]
+    public string Id { get; set; } = $"_{Guid.NewGuid().ToString()}";
+
+    [Parameter]
+    public string Label { get; set; } // DisplayAttribute
+
+    [Parameter]
+    public string Type { get; set; } = "text";
+
+    [Parameter]
+    public string Placeholder { get; set; } //
+
+    [Parameter]
+    public string Description { get; set; }
+
+    [Parameter]
+    public string Value { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    private async Task InputChanged()
+    {
+        if (ValueChanged.HasDelegate)
+        {
+            await ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    protected override void OnInitialized() {
+        
+    }
+
+}

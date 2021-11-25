@@ -1,0 +1,29 @@
+﻿@page "/fetchdata"
+@using Workshop.Blazor.Frontend.Client.Shared.DataGrid
+@using Workshop.Blazor.Frontend.Client.ViewModels
+@using Workshop.Blazor.ServiceProxy
+
+@inject IClientService ClientService
+
+<PageTitle>Events</PageTitle>
+
+<h1>Events</h1>
+
+<Grid Type=@EventViewModel Data="@DataSource" Action="GridAction">
+    <IntegerTemplate>
+        @if(context == 0)
+        {
+            <span class="badge bg-warning">Leider ausverkauft</span>
+        } else {
+            <span class="badge bg-primary">@context</span>
+        }
+    </IntegerTemplate>
+</Grid>
+
+
+@if (CurrentItem != null)
+{
+    <div class="alert alert-dark">
+        @CurrentItem.Name
+    </div>
+}

@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "scripts": {
+    "build": "sass ./Assets/Frontend.scss ./wwwroot/css/main.css"
+  },
+  "devDependencies": {
+    "sass": "^1.43.5"
+  },
+  "dependencies": {
+    "bootstrap": "~5.1.3"
+  }
+}
